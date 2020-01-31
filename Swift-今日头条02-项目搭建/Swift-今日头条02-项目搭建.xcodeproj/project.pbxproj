@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		710D342323E3C47400995450 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710D342223E3C47400995450 /* const.swift */; };
 		7119725123E14CF8004E106D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119725023E14CF8004E106D /* AppDelegate.swift */; };
 		7119725323E14CF8004E106D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119725223E14CF8004E106D /* SceneDelegate.swift */; };
 		7119725A23E14CF9004E106D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7119725923E14CF9004E106D /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		30BAC6A5114FB66C371B7987 /* Pods-Swift-今日头条02-项目搭建.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift-今日头条02-项目搭建.debug.xcconfig"; path = "Target Support Files/Pods-Swift-今日头条02-项目搭建/Pods-Swift-今日头条02-项目搭建.debug.xcconfig"; sourceTree = "<group>"; };
+		710D342223E3C47400995450 /* const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = const.swift; sourceTree = "<group>"; };
 		7119724D23E14CF8004E106D /* Swift-今日头条02-项目搭建.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-今日头条02-项目搭建.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7119725023E14CF8004E106D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7119725223E14CF8004E106D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,8 +87,6 @@
 				711EEF2623E2E047003DD0B3 /* HuoShan */,
 				711EEF2523E2E032003DD0B3 /* Home */,
 				7119726623E14D94004E106D /* main */,
-				7119725023E14CF8004E106D /* AppDelegate.swift */,
-				7119725223E14CF8004E106D /* SceneDelegate.swift */,
 				7119725923E14CF9004E106D /* Assets.xcassets */,
 				7119725B23E14CF9004E106D /* LaunchScreen.storyboard */,
 				7119725E23E14CF9004E106D /* Info.plist */,
@@ -139,6 +139,9 @@
 		711EEF2923E2E064003DD0B3 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				7119725023E14CF8004E106D /* AppDelegate.swift */,
+				7119725223E14CF8004E106D /* SceneDelegate.swift */,
+				710D342223E3C47400995450 /* const.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				7187E62D23E2B10400947417 /* SCTabBar.swift in Sources */,
 				7119725323E14CF8004E106D /* SceneDelegate.swift in Sources */,
 				7119726C23E1532B004E106D /* HomeViewController.swift in Sources */,
+				710D342323E3C47400995450 /* const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
