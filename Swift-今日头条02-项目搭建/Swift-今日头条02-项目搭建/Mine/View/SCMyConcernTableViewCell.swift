@@ -1,5 +1,5 @@
 //
-//  SCMineSettingTableViewCell.swift
+//  SCMyConcernTableViewCell.swift
 //  Swift-今日头条02-项目搭建
 //
 //  Created by Evan Yang on 2020/2/1.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class SCMineSettingTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var leftLabel: UILabel!
-    @IBOutlet weak var rightLabel: UILabel!
-    @IBOutlet weak var rightImgView: UIImageView!
+class SCMyConcernTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleImageView: UIImageView!
+    @IBOutlet weak var concernCollectionView: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
