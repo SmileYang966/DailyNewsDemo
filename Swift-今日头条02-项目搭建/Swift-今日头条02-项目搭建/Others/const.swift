@@ -12,6 +12,8 @@ import UIKit
 let screenWidth = UIScreen.main.bounds.size.width
 let screenHeight = UIScreen.main.bounds.size.height
 
+let baseURL = "https://is.snssdk.com"
+let deviceID = "6096495334"
 
 
 
