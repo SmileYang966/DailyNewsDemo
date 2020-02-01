@@ -18,6 +18,8 @@ class MySettingViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         tableView.delegate = self
         tableView.dataSource = self;
+        //自定义一个XIB类型的UITableViewCell
+        tableView.register(UINib(nibName: String(describing: SCMineSettingTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: SCMineSettingTableViewCell.self))
         //隐藏没必要的footerView
         tableView.tableFooterView = UIView()
         
@@ -57,18 +59,14 @@ extension MySettingViewController{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellID : String = "CELLID";
-        var tableViewCell : UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellID)
-        if tableViewCell == nil {
-            tableViewCell = UITableViewCell(style: .value1, reuseIdentifier: cellID);
-        }
-        
+        //使用自定义的XIB类型的cell，直接根据Identifier去取相应的cell
+        let tableViewCell : SCMineSettingTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: SCMineSettingTableViewCell.self)) as! SCMineSettingTableViewCell
         let sectionArray : [MyCellModel] = self.sections[indexPath.section]
         let cellItem : MyCellModel = sectionArray[indexPath.row]
         
-        tableViewCell!.textLabel!.text = cellItem.text
+        tableViewCell.textLabel!.text = cellItem.text
         
-        return tableViewCell!
+        return tableViewCell
     }
     
     //UITableViewDelegate

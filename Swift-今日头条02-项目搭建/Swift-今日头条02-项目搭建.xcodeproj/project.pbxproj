@@ -17,6 +17,8 @@
 		7119726C23E1532B004E106D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119726B23E1532B004E106D /* HomeViewController.swift */; };
 		715D037D23E40697004A0FD0 /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715D037C23E40697004A0FD0 /* NetworkTool.swift */; };
 		715D038023E41FA5004A0FD0 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715D037F23E41FA5004A0FD0 /* CellModel.swift */; };
+		716B54D423E5789E00F54412 /* SCMineSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716B54D223E5789E00F54412 /* SCMineSettingTableViewCell.swift */; };
+		716B54D523E5789E00F54412 /* SCMineSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716B54D323E5789E00F54412 /* SCMineSettingTableViewCell.xib */; };
 		7187E62D23E2B10400947417 /* SCTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187E62C23E2B10400947417 /* SCTabBar.swift */; };
 		71FEBE3D23E1759600442120 /* VolcanoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FEBE3C23E1759600442120 /* VolcanoViewController.swift */; };
 		71FEBE3F23E175A700442120 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FEBE3E23E175A700442120 /* VideoViewController.swift */; };
@@ -37,6 +39,8 @@
 		7119726B23E1532B004E106D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		715D037C23E40697004A0FD0 /* NetworkTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTool.swift; sourceTree = "<group>"; };
 		715D037F23E41FA5004A0FD0 /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+		716B54D223E5789E00F54412 /* SCMineSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMineSettingTableViewCell.swift; sourceTree = "<group>"; };
+		716B54D323E5789E00F54412 /* SCMineSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCMineSettingTableViewCell.xib; sourceTree = "<group>"; };
 		7187E62C23E2B10400947417 /* SCTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCTabBar.swift; sourceTree = "<group>"; };
 		71FEBE3C23E1759600442120 /* VolcanoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolcanoViewController.swift; sourceTree = "<group>"; };
 		71FEBE3E23E175A700442120 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 		711EEF2723E2E053003DD0B3 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				716B54D123E5785600F54412 /* View */,
 				715D037E23E41F82004A0FD0 /* Model */,
 				71FEBE4023E175B300442120 /* MySettingViewController.swift */,
 			);
@@ -158,6 +163,15 @@
 				715D037F23E41FA5004A0FD0 /* CellModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		716B54D123E5785600F54412 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				716B54D223E5789E00F54412 /* SCMineSettingTableViewCell.swift */,
+				716B54D323E5789E00F54412 /* SCMineSettingTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F5660834003B315F86B49814 /* Pods */ = {
@@ -229,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				716B54D523E5789E00F54412 /* SCMineSettingTableViewCell.xib in Resources */,
 				7119725D23E14CF9004E106D /* LaunchScreen.storyboard in Resources */,
 				7119725A23E14CF9004E106D /* Assets.xcassets in Resources */,
 			);
@@ -295,6 +310,7 @@
 				715D037D23E40697004A0FD0 /* NetworkTool.swift in Sources */,
 				7119726A23E14DD6004E106D /* SCTabBarController.swift in Sources */,
 				71FEBE3F23E175A700442120 /* VideoViewController.swift in Sources */,
+				716B54D423E5789E00F54412 /* SCMineSettingTableViewCell.swift in Sources */,
 				71FEBE3D23E1759600442120 /* VolcanoViewController.swift in Sources */,
 				71FEBE4123E175B300442120 /* MySettingViewController.swift in Sources */,
 				7119726823E14DBE004E106D /* SCNavigationController.swift in Sources */,
