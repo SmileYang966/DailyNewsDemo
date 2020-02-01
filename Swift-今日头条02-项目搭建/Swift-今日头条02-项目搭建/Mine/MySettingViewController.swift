@@ -10,24 +10,38 @@ import UIKit
 
 class MySettingViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    var sections = [[MyCellModel]]()
+    
     //1.Swift方式定义一个tableView
     lazy var mySettingTableView : UITableView = {
         var tableView : UITableView = UITableView(frame: self.view.bounds, style: UITableView.Style.plain)
         
         tableView.delegate = self
         tableView.dataSource = self;
+        //隐藏没必要的footerView
+        tableView.tableFooterView = UIView()
         
         self.view.addSubview(tableView)
-        return UITableView()
+        return tableView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor.orange;
-        
+        self.view.backgroundColor = UIColor.orange
         self.mySettingTableView.backgroundColor = UIColor.lightGray
+        
+        //获取cell的数据
+        NetworkTool.loadMyCellData { (sectionsFromNetwork) in
+            self.sections = sectionsFromNetwork
+            print("1--current Thread is \(Thread.current)")
+            DispatchQueue.main.async {
+                print("2--current Thread is \(Thread.current)")
+                self.mySettingTableView.reloadData()
+                self.mySettingTableView.backgroundColor = UIColor.lightGray
+            }
+        }
     }
 }
 
@@ -35,11 +49,11 @@ extension MySettingViewController{
     
     //UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.sections[section].count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return self.sections.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,7 +62,11 @@ extension MySettingViewController{
         if tableViewCell == nil {
             tableViewCell = UITableViewCell(style: .value1, reuseIdentifier: cellID);
         }
-        tableViewCell!.textLabel!.text = "12345"
+        
+        let sectionArray : [MyCellModel] = self.sections[indexPath.section]
+        let cellItem : MyCellModel = sectionArray[indexPath.row]
+        
+        tableViewCell!.textLabel!.text = cellItem.text
         
         return tableViewCell!
     }
