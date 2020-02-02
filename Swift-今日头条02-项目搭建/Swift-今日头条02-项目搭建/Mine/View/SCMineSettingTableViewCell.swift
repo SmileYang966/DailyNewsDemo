@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SCMineSettingTableViewCell: UITableViewCell {
+class SCMineSettingTableViewCell: UITableViewCell,SCRegisterNib {
 
     @IBOutlet weak var leftLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!

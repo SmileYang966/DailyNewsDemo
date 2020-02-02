@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SCMyConcernTableViewCell: UITableViewCell {
+class SCMyConcernTableViewCell: UITableViewCell,SCRegisterNib {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleImageView: UIImageView!

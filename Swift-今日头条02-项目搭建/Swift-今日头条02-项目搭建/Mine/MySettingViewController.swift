@@ -19,9 +19,13 @@ class MySettingViewController: UIViewController,UITableViewDelegate,UITableViewD
         tableView.delegate = self
         tableView.dataSource = self;
         //自定义一个XIB类型的UITableViewCell
-        tableView.register(UINib(nibName: String(describing: SCMineSettingTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: SCMineSettingTableViewCell.self))
+        
+        tableView.sc_registerCell(cell: SCMineSettingTableViewCell.self)
+        tableView.sc_registerCell(cell: SCMyConcernTableViewCell.self)
+        
+//        tableView.register(UINib(nibName: String(describing: SCMineSettingTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: SCMineSettingTableViewCell.self))
         //自定义一个XIB类型的关注cell
-        tableView.register(UINib(nibName: String(describing: SCMyConcernTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: SCMyConcernTableViewCell.self))
+//        tableView.register(UINib(nibName: String(describing: SCMyConcernTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: SCMyConcernTableViewCell.self))
         //隐藏没必要的footerView
         tableView.tableFooterView = UIView()
         
@@ -63,12 +67,17 @@ extension MySettingViewController{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //使用自定义的XIB类型的cell，直接根据Identifier去取相应的cell
         if indexPath.section == 0 && indexPath.row == 0 {
-            let concernCell : SCMyConcernTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: SCMyConcernTableViewCell.self)) as! SCMyConcernTableViewCell
+//            let concernCell : SCMyConcernTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: SCMyConcernTableViewCell.self)) as! SCMyConcernTableViewCell
+            
+            let concernCell : SCMyConcernTableViewCell = tableView.sc_dequeueReusableCell(indexpath: indexPath)
             
             return concernCell
         }
         
-        let tableViewCell : SCMineSettingTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: SCMineSettingTableViewCell.self)) as! SCMineSettingTableViewCell
+//        let tableViewCell : SCMineSettingTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: SCMineSettingTableViewCell.self)) as! SCMineSettingTableViewCell
+        
+        let tableViewCell : SCMineSettingTableViewCell = tableView.sc_dequeueReusableCell(indexpath: indexPath)
+        
         let sectionArray : [MyCellModel] = self.sections[indexPath.section]
         let cellItem : MyCellModel = sectionArray[indexPath.row]
         
