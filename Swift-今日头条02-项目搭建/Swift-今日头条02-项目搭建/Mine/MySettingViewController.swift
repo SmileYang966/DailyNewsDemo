@@ -11,6 +11,7 @@ import UIKit
 class MySettingViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var sections = [[MyCellModel]]()
+    var myConcernsData = [MyConcernModel]()
     
     //1.Swift方式定义一个tableView
     lazy var mySettingTableView : UITableView = {
@@ -49,6 +50,10 @@ class MySettingViewController: UIViewController,UITableViewDelegate,UITableViewD
                 self.mySettingTableView.reloadData()
                 self.mySettingTableView.backgroundColor = UIColor.lightGray
             }
+        }
+        
+        NetworkTool.loadMyConcern { (myConcernsData) in
+            self.myConcernsData = myConcernsData
         }
     }
 }

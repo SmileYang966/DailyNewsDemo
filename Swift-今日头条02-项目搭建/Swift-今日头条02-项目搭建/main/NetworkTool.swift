@@ -16,7 +16,7 @@ protocol NetworkToolProtocol {
     static func loadMyCellData(completionHandler:@escaping (_ sections : [[MyCellModel]]) -> ())
     
     //我的关注的数据
-    static func loadMyConcern()
+    static func loadMyConcern(completionHandler:@escaping (_ sections : [MyConcernModel]) -> ())
 }
 
 extension NetworkToolProtocol{
@@ -62,11 +62,40 @@ extension NetworkToolProtocol{
     }
     
     //我的关注的数据
-    static func loadMyConcern(){
-        
+    static func loadMyConcern(completionHandler:@escaping (_ sections : [MyConcernModel]) -> ()){
+        let concernDataURL = baseURL + "/concern/v2/follow/my_follow/?"
+        Alamofire.request(concernDataURL).responseJSON { (response : DataResponse) in
+            guard response.result.isSuccess else{
+                print("网络错误")
+                return
+            }
+            
+            //正常接受到数据的情况
+            if let value = response.value{
+                print("----value is \(value))")
+                let json = JSON(value)
+                guard json["message"] == "success" else{
+                    return
+                }
+                
+                let jsonArrayString : String = "[{\"name\" : \"zhangsan\",\"total_count\":\"10\",\"description\" : \"This is Testing\",\"time\":\"20200203\"},{\"name\" : \"Evan\",\"total_count\":\"200\",\"description\" : \"No bugs\",\"time\":\"19910517\"}]"
+                let data = jsonArrayString.data(using: .utf8, allowLossyConversion: false) ?? Data()
+                //解析得到字典类型的数据
+                if let sections = JSON(data).arrayObject{
+                    var concernArray = [MyConcernModel]()
+                    for concern in sections {
+                        let myconcernModel = MyConcernModel.deserialize(from: concern as? NSDictionary)
+                        concernArray.append(myconcernModel!)
+                        print(myconcernModel)
+                    }
+                    completionHandler(concernArray)
+                }else{
+                    print("NO Data Existed")
+                }
+            }
+        }
     }
 }
 
 struct NetworkTool : NetworkToolProtocol {
-    
 }
